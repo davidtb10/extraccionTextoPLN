@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Consultas sobre texto</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
+          type="text/css">
+    <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet"
+          type="text/css">
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top ">
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
+                <h1 class="logo me-auto me-lg-0"><a href="index.html">Demo de consultas sobre texto con PLN</a></h1>
+
+
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="#inicio">Inicio</a></li>
+                        <li><a class="nav-link scrollto" href="#consulta">Consulta</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+            </div>
+        </div>
+
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Inicio Section ======= -->
+<section id="inicio" class="d-flex flex-column justify-content-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h1>Demo de consultas sobre texto a través de PLN</h1>
+                <br>
+                <h2>La web se basa en el uso local del modelo open-source GPT-J 6B de EleutherAI para generar respuestas a las preguntas introducidas sobre el texto adjunto.</h2>
+                <div id="GPTJweb" class="row">
+                    <i class="bi bi-globe2"></i>
+                    <a href="https://6b.eleuther.ai/" class="">Página de pruebas oficial de GPT-J-6B</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Inicio -->
+
+<main id="main">
+
+    <!-- ======= Consulta Section ======= -->
+    <section id="consulta" class="consulta">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Consulta</h2>
+            </div>
+
+            <div class="row content">
+                <div class="col">
+                    <div class="row">
+                        <p>Introduce una pregunta sobre el texto adjunto en el área de texto.</p>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <p id="downloadPDF">
+                            <a href="/download" class="text-decoration-none">Descargar texto de referencia
+                                <i class="bi bi-file-earmark-pdf-fill"></i>
+                            </a>
+                        </p>
+                    </div>
+                    <br>
+                    <form role="form" class="icon-box">
+                        <div class="row justify-content-center">
+                            <div class="col-9 ">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12">
+                                        <textarea class="form-control" id="inputTextArea" name="promptText" rows="15" placeholder="Introduzca su consulta"></textarea>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <button class="greenButton" id="loadingModelButton" disabled>
+                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        Cargando modelo...
+                                    </button>
+                                    <button class="greenButton" id="executeModelButton">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                          <div id="spinner" class="spinner-border text-success"></div>
+                        </div>
+                        <br><br>
+                        <div id="responseDiv" class="row justify-content-center">
+                            <div class="col-9 ">
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12">
+                                        <h3>Respuesta</h3>
+                                        <div id="response"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Consulta Section -->
+
+
+</main><!-- End #main -->
+
+
+<div id="preloader"></div>
+
+
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.6.0.min.js') }}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+
+</body>
+
+</html>
